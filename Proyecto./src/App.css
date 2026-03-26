@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --amarillo: #FFD700;
+  --azul: #003087;
+  --rojo: #CE1126;
+  --verde: #2ecc71;
+  --fondo: #0a0a1a;
+  --card: #13132a;
+  --card2: #1a1a35;
+  --texto: #f0f0ff;
+  --gris: #8888aa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background:
+    radial-gradient(ellipse at top left, rgba(0,48,135,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(206,17,38,0.2) 0%, transparent 50%),
+    var(--fondo);
+}
+
+.pantalla {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.logo-area { text-align: center; }
+.bandera-icon { font-size: 56px; margin-bottom: 8px; }
+.titulo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 64px;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, var(--amarillo), #fff 50%, var(--amarillo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.subtitulo { color: var(--gris); font-size: 15px; font-weight: 600; margin-top: 4px; }
+
+.selector-label { font-size: 13px; color: var(--gris); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; text-align: center; }
+.dificultad-selector { width: 100%; text-align: center; }
+.botones-dificultad { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.btn-dificultad {
+  background: var(--card); border: 2px solid transparent;
+  color: var(--texto); padding: 10px 12px; border-radius: 12px;
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+}
+.btn-dificultad:hover { border-color: var(--amarillo); }
+.btn-dificultad.activo { background: var(--amarillo); color: #111; border-color: var(--amarillo); }
+
+.info-juego { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.info-item { background: var(--card); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--gris); }
+
+.btn-iniciar {
+  width: 100%; background: linear-gradient(135deg, var(--amarillo), #ffb300);
+  color: #111; border: none; padding: 16px; border-radius: 16px;
+  font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 2px;
+  cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 24px rgba(255,215,0,0.3);
+}
+.btn-iniciar:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,215,0,0.5); }
+
+.creditos { font-size: 11px; color: var(--gris); opacity: 0.6; }
+
+.juego-header { display: flex; justify-content: space-between; align-items: center; width: 100%; font-weight: 800; font-size: 14px; }
+.timer { background: var(--card); padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 800; transition: all 0.3s; }
+.timer-urgente { background: var(--rojo); animation: pulso 0.5s infinite alternate; }
+@keyframes pulso { from { transform: scale(1); } to { transform: scale(1.08); } }
+.puntaje-live { font-size: 14px; font-weight: 800; color: var(--amarillo); }
+
+.barra-progreso { width: 100%; height: 4px; background: var(--card2); border-radius: 99px; overflow: hidden; }
+.barra-fill { height: 100%; background: var(--azul); border-radius: 99px; transition: width 0.4s ease; }
+
+.timer-barra { width: 100%; height: 6px; background: var(--card2); border-radius: 99px; overflow: hidden; }
+.timer-fill { height: 100%; background: linear-gradient(90deg, var(--verde), var(--amarillo)); border-radius: 99px; transition: width 1s linear; }
+.timer-fill-urgente { background: linear-gradient(90deg, var(--rojo), #ff6b6b); }
+
+.categoria-badge { background: var(--card); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 700; color: var(--amarillo); text-transform: uppercase; letter-spacing: 1px; }
+
+.pregunta-card { background: var(--card); border-radius: 20px; padding: 24px 20px; width: 100%; border: 1px solid rgba(255,215,0,0.1); }
+.pregunta-texto { font-size: 17px; font-weight: 700; line-height: 1.5; text-align: center; }
+
+.opciones { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.opcion {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 2px solid rgba(255,255,255,0.07);
+  color: var(--texto); padding: 14px 16px; border-radius: 14px;
+  font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all 0.15s; text-align: left;
+}
+.opcion:hover:not(.correcta):not(.incorrecta):not(.opaca) { border-color: var(--amarillo); background: var(--card2); }
+.opcion-letra { width: 28px; height: 28px; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+.opcion.correcta { background: rgba(46,204,113,0.2); border-color: var(--verde); color: var(--verde); }
+.opcion.incorrecta { background: rgba(206,17,38,0.2); border-color: var(--rojo); color: #ff6b6b; }
+.opcion.opaca { opacity: 0.4; }
+
+.resultado-pantalla { text-align: center; gap: 16px; }
+.resultado-emoji { font-size: 72px; }
+.resultado-titulo { font-family: 'Bebas Neue', cursive; font-size: 36px; letter-spacing: 2px; color: var(--amarillo); }
+.resultado-puntaje { display: flex; align-items: baseline; justify-content: center; gap: 4px; }
+.puntaje-num { font-family: 'Bebas Neue', cursive; font-size: 80px; color: var(--amarillo); line-height: 1; }
+.puntaje-total { font-size: 28px; color: var(--gris); font-weight: 800; }
+.resultado-porcentaje { font-size: 16px; color: var(--gris); font-weight: 700; }
+
+.historial { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.historial-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; }
+.dot-ok { background: rgba(46,204,113,0.2); color: var(--verde); }
+.dot-fail { background: rgba(206,17,38,0.2); color: #ff6b6b; }
+
+.resultado-botones { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.btn-secundario {
+  width: 100%; background: var(--card); color: var(--texto);
+  border: 2px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px;
+  font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.2s;
+}
+.btn-secundario:hover { border-color: var(--amarillo); }
